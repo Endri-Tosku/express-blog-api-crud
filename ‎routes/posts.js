@@ -1,33 +1,27 @@
 // richiamo istanza di framework Express
 const express = require('express')
 // creiamo un istanza dell'oggetto rotte di Express
-const routes = express.Route();
+const router = express.Router();
+
+// importiamo il controller
+const postController = require('../‎controllers/postController');
 
 // rotte CRUD
+
 // index
-routes.get('/', function (req, res) {
-    res.send('Lista dei posts');
-});
+router.get('/', postController.index);
 
 // show
-routes.get('/:id', function (req, res) {
-    res.send('Dettagli della post ' + req.params.id);
-});
+router.get('/:id', postController.show);
 
 // Create
-routes.post('/', function (req, res) {
-    res.send('Creazione nuova post');
-});
+router.post('/', postController.store);
 
 // Update 
-routes.put('/:id', function (req, res) {
-    res.send('Modifica integrale della post ' + req.params.id);
-});
+router.put('/:id', postController.update);
 
 // Delete 
-routes.delete('/:id', function (req, res) {
-    res.send('Eliminazione della post ' + req.params.id);
-});
+router.delete('/:id', postController.destroy);
 
 // esporta l'istanza di queste rotte
-module.exports = routes;
+module.exports = router;
