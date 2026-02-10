@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 
 // importiamo le rotte dei post
-const postRoutes = require('./‎routes/posts');
+const postRoutes = require('./‎routes/post');
 
 // middleware per leggere JSON (servirà dopo)
 app.use(express.json());
