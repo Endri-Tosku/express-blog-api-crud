@@ -10,6 +10,9 @@ function show(req, res) {
     // recuperiamo l'id dall'URL e lo convertiamo in numero
     const idNum = parseInt(req.params.id);
 
+    throw new Error("Errore di test middleware");
+
+
     const post = dataPost.find(post => post.id === idNum);
 
     // controllo se il post esiste
